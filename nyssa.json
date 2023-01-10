@@ -1,0 +1,19 @@
+{
+  "name": "wire", 
+  "version": "1.0.0", 
+  "description": "Dynamic HTML template engine.", 
+  "homepage": "https://github.com/mcfriend99/wire", 
+  "tags": [
+    "html", 
+    "template", 
+    "template-engine", 
+    "dynamic", 
+    "wire"
+  ], 
+  "author": "Richard Ore <eqliqandfriends@gmail.com>", 
+  "license": "MIT", 
+  "sources": [
+    "https://nyssa.bladelang.com"
+  ], 
+  "deps": {}
+}
