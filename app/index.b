@@ -20,7 +20,13 @@ var _default_functions = {
     if is_iterable(value)
       return value.length()
     die Exception('value is not an iterable')
-  }
+  },
+  upper: | value | {
+    return to_string(value).upper()
+  },
+  lower: | value | {
+    return to_string(value).lower()
+  },
 }
 
 class Wire {
@@ -301,6 +307,26 @@ class Wire {
     }
   }
 
+  renderString(source, variables, path) {
+    if !is_string(source)
+      die Exception('wire template expected')
+  
+    if variables != nil and !is_dict(variables)
+      die Exception('variables must be passed to render() as a dictionary')
+    if variables == nil variables = {}
+
+    if !path path = '<source>'
+    else path = to_string(path)
+  
+    return cocoa.encode(
+      self._process(
+        path,
+        cocoa.decode(self._strip(source), {includePositions: true}),
+        variables
+      )
+    )
+  }
+
   render(name, variables) {
     if !is_string(name)
       die Exception('wire name expected')
@@ -314,17 +340,13 @@ class Wire {
   
     var wire_file = file(path)
     if wire_file.exists() {
-      var file_content = self._strip(wire_file.read())
-  
-      return cocoa.encode(
-        self._process(
-          path,
-          cocoa.decode(file_content, {includePositions: true}),
-          variables
-        )
-      )
+      return self.renderString(wire_file.read(), variables, path)
     }
   
     die Exception('wire "${name}" not found')
   }
+}
+
+def wire(options) {
+  return Wire(options)
 }

@@ -1,6 +1,6 @@
 import ..app
 
-var wire = app.Wire({
+var wire = app.wire({
   root: 'tests/wires',
   auto_init: true,
   functions: {
@@ -25,7 +25,7 @@ var wire = app.Wire({
 })
 
 assert wire.render('test', {
-  name: 'Richard'
+  name: 'Richard',
 }) == '<!doctype html>
 <html lang="en">
 <head>
@@ -49,5 +49,10 @@ assert wire.render('test', {
   It works!
   {! test !}
 </body>
-</html>', 'Test Failed!'
+</html>', 'Test `render()` Failed!'
+
+assert wire.renderString('<p>{{name}}</p>', {
+  name: 'Richard',
+}) == '<p>Richard</p>', 'Test `renderString()` failed!'
+
 echo 'Test Passed!'
