@@ -14,4 +14,4 @@ Wire is an extendable and customisable dynamic HTML template engine based on ele
 
 ### Documentation
 
-Read documentation at [mcfriend99.github.io/wire](mcfriend99.github.io/wire).
+Read documentation at [mcfriend99.github.io/wire](https://mcfriend99.github.io/wire/).
