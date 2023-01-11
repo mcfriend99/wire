@@ -24,7 +24,7 @@ echo wireapp.renderString('mytemplate')
 
 Here's a quick sample of a Wire template.
 
-```
+```html5
 <!DOCTYPE html>
 <html lang="en">
 <head>
