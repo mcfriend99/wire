@@ -15,5 +15,7 @@
   "sources": [
     "https://nyssa.bladelang.com"
   ], 
-  "deps": {}
+  "deps": {
+    "cocoa": "1.0.0"
+  }
 }
